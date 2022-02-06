@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var email = ""
     @State var password=""
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 Spacer()
                 VStack{
@@ -33,7 +33,7 @@ struct ContentView: View {
                 }.padding()
                 Spacer()
                 
-            }.navigationTitle("")
+//            }.navigationTitle("")
         }
     }
 }
