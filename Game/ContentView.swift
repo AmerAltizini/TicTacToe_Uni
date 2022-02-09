@@ -6,37 +6,44 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import Firebase
+
 
 struct ContentView: View {
-    @State var email = ""
-    @State var password=""
+    @EnvironmentObject var viewModel : AppViewModel
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-                VStack{
-                    Text("Uni Game").font(.system(size: 30, weight: .heavy, design: .default))
-                    TextField("Email", text: $email)
-                        .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
-                    Button(action:{
-                
-                    }, label: {
-                        Text("Login").foregroundColor(Color.white).frame(width: 200, height: 50).background(Color.black)
-                    }).cornerRadius(8).padding()
-                    
-                }.padding()
-                Spacer()
-                
-            }.navigationTitle("")
+            
+            if  viewModel.signedIn {
+                TabView {
+                    HomeView().tabItem {
+                        Image(systemName: "house")
+                        Text("Home")
+                    }
+                    UsersListView().tabItem {
+                        Image(systemName: "person.3")
+                        Text("Users")
+                    }
+                    AccountView().tabItem {
+                        Image(systemName: "person")
+                        Text("Account")
+                    }
+                }
+                .onAppear() {
+                        UITabBar.appearance().barTintColor = .white
+                }
+                .accentColor(.black)
+            }
+            else {
+                SignInView()
+            }
+        }.onAppear {
+            viewModel.signedIn = viewModel.isSignedIn
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

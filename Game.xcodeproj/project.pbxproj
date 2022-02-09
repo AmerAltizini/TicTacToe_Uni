@@ -12,6 +12,12 @@
 		4952C32027A3004A007A4A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4952C31F27A3004A007A4A0A /* Assets.xcassets */; };
 		4952C32327A3004A007A4A0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4952C32227A3004A007A4A0A /* Preview Assets.xcassets */; };
 		49DDC8F727A3348F00D01E22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */; };
+		49DF2EA827A6C7DA009A9EBA /* SignupModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EA727A6C7DA009A9EBA /* SignupModelView.swift */; };
+		49DF2EAB27A6C891009A9EBA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EAA27A6C891009A9EBA /* SignUpView.swift */; };
+		49DF2EAF27A6C96C009A9EBA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EAE27A6C96C009A9EBA /* SignInView.swift */; };
+		49DF2EB127A6CB41009A9EBA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EB027A6CB41009A9EBA /* HomeView.swift */; };
+		49DF2EB327A6CE14009A9EBA /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EB227A6CE14009A9EBA /* UsersListView.swift */; };
+		49DF2EB527A6CE2E009A9EBA /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EB427A6CE2E009A9EBA /* AccountView.swift */; };
 		C425934FEC8D5FD9E7926604 /* Pods_Game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97E22981888CC0E930BC6DD /* Pods_Game.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +28,12 @@
 		4952C31F27A3004A007A4A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4952C32227A3004A007A4A0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49DF2EA727A6C7DA009A9EBA /* SignupModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModelView.swift; sourceTree = "<group>"; };
+		49DF2EAA27A6C891009A9EBA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		49DF2EAE27A6C96C009A9EBA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		49DF2EB027A6CB41009A9EBA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		49DF2EB227A6CE14009A9EBA /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		49DF2EB427A6CE2E009A9EBA /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		6ED2B3373E063E10F25540EA /* Pods-Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game.debug.xcconfig"; path = "Target Support Files/Pods-Game/Pods-Game.debug.xcconfig"; sourceTree = "<group>"; };
 		B97E22981888CC0E930BC6DD /* Pods_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F3AE5FE76B1D70889F3650 /* Pods-Game.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game.release.xcconfig"; path = "Target Support Files/Pods-Game/Pods-Game.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,8 +80,10 @@
 		4952C31A27A30049007A4A0A /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */,
 				4952C32927A31CBE007A4A0A /* Models */,
+				49DF2EA927A6C81F009A9EBA /* Views */,
+				49DF2EA627A6C79A009A9EBA /* ModelViews */,
+				49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */,
 				4952C31B27A30049007A4A0A /* GameApp.swift */,
 				4952C31D27A30049007A4A0A /* ContentView.swift */,
 				4952C31F27A3004A007A4A0A /* Assets.xcassets */,
@@ -91,6 +105,26 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		49DF2EA627A6C79A009A9EBA /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				49DF2EA727A6C7DA009A9EBA /* SignupModelView.swift */,
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		49DF2EA927A6C81F009A9EBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49DF2EAA27A6C891009A9EBA /* SignUpView.swift */,
+				49DF2EAE27A6C96C009A9EBA /* SignInView.swift */,
+				49DF2EB027A6CB41009A9EBA /* HomeView.swift */,
+				49DF2EB227A6CE14009A9EBA /* UsersListView.swift */,
+				49DF2EB427A6CE2E009A9EBA /* AccountView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B2F468C77ABA55377B074D19 /* Pods */ = {
@@ -217,8 +251,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DF2EAB27A6C891009A9EBA /* SignUpView.swift in Sources */,
 				4952C31E27A30049007A4A0A /* ContentView.swift in Sources */,
+				49DF2EA827A6C7DA009A9EBA /* SignupModelView.swift in Sources */,
+				49DF2EB127A6CB41009A9EBA /* HomeView.swift in Sources */,
+				49DF2EB527A6CE2E009A9EBA /* AccountView.swift in Sources */,
 				4952C31C27A30049007A4A0A /* GameApp.swift in Sources */,
+				49DF2EAF27A6C96C009A9EBA /* SignInView.swift in Sources */,
+				49DF2EB327A6CE14009A9EBA /* UsersListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
