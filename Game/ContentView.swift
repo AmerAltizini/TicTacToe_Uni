@@ -8,40 +8,72 @@
 import SwiftUI
 import FirebaseAuth
 import Firebase
+import UIKit
 
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AppViewModel
     var body: some View {
         NavigationView {
-            
             if  viewModel.signedIn {
-                TabView {
-                    HomeView().tabItem {
-                        Image(systemName: "house")
-                        Text("Home")
-                    }
-                    UsersListView().tabItem {
-                        Image(systemName: "person.3")
-                        Text("Users")
-                    }
-                    AccountView().tabItem {
-                        Image(systemName: "person")
-                        Text("Account")
-                    }
-                }
-                .onAppear() {
-                        UITabBar.appearance().barTintColor = .white
-                }
-                .accentColor(.black)
+                TabBar()
             }
             else {
                 SignInView()
             }
-        }.onAppear {
+        }
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+        .onAppear {
             viewModel.signedIn = viewModel.isSignedIn
         }
     }
+}
+
+
+struct TabBar : View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.tertiarySystemFill
+    }
+    var body : some View {
+        TabView {
+            NavigationView{
+                HomeView()
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarHidden(true)
+            }
+            .tabItem {
+                Image(systemName: "house")
+                Text("Home")
+            }
+            NavigationView{
+                UsersListView()
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarHidden(true)
+            }
+            .tabItem {
+                Image(systemName: "person.3")
+                Text("Users")
+            }
+            NavigationView{
+                AccountView()
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarHidden(true)
+            }
+            .tabItem {
+                Image(systemName: "person")
+                Text("Account")
+            }
+            
+        }
+        .accentColor(.black)
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+        .onAppear() {
+            UITabBar.appearance().barTintColor = .black
+        }
+    }
+    
 }
 
 
@@ -50,3 +82,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+

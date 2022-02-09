@@ -43,7 +43,7 @@ struct SignInView : View {
                     Alert(title: Text("Sign in Error"), message: Text(viewModel.authError), dismissButton: .default(Text("Okay")))
                 }).cornerRadius(8).padding()
                 
-                NavigationLink( "Create Account", destination: SignUpView()).padding()
+                NavigationLink("Create Account", destination: SignUpView()).padding()
                 
             }.padding()
             Spacer()
