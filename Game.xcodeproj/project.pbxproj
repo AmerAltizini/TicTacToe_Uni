@@ -27,6 +27,8 @@
 		49DF2EB527A6CE2E009A9EBA /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2EB427A6CE2E009A9EBA /* AccountView.swift */; };
 		49F0D4A627B2EE2C0034B649 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D4A527B2EE2C0034B649 /* Game.swift */; };
 		49F0D4A827B30B4A0034B649 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D4A727B30B4A0034B649 /* User.swift */; };
+		49F0D4AB27B313B50034B649 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D4AA27B313B50034B649 /* FirebaseReference.swift */; };
+		49F0D4AD27B314B10034B649 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D4AC27B314B10034B649 /* FirebaseService.swift */; };
 		C425934FEC8D5FD9E7926604 /* Pods_Game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97E22981888CC0E930BC6DD /* Pods_Game.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		49DF2EB427A6CE2E009A9EBA /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		49F0D4A527B2EE2C0034B649 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		49F0D4A727B30B4A0034B649 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		49F0D4AA27B313B50034B649 /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
+		49F0D4AC27B314B10034B649 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		6ED2B3373E063E10F25540EA /* Pods-Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game.debug.xcconfig"; path = "Target Support Files/Pods-Game/Pods-Game.debug.xcconfig"; sourceTree = "<group>"; };
 		B97E22981888CC0E930BC6DD /* Pods_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F3AE5FE76B1D70889F3650 /* Pods-Game.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game.release.xcconfig"; path = "Target Support Files/Pods-Game/Pods-Game.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		4952C31A27A30049007A4A0A /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				49F0D4A927B313910034B649 /* FirebaseHelpers */,
 				4952C32927A31CBE007A4A0A /* Models */,
 				49DF2EA927A6C81F009A9EBA /* Views */,
 				49DF2EA627A6C79A009A9EBA /* ModelViews */,
@@ -152,6 +157,15 @@
 				49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		49F0D4A927B313910034B649 /* FirebaseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				49F0D4AA27B313B50034B649 /* FirebaseReference.swift */,
+				49F0D4AC27B314B10034B649 /* FirebaseService.swift */,
+			);
+			path = FirebaseHelpers;
 			sourceTree = "<group>";
 		};
 		B2F468C77ABA55377B074D19 /* Pods */ = {
@@ -278,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F0D4AD27B314B10034B649 /* FirebaseService.swift in Sources */,
 				49DF2EAB27A6C891009A9EBA /* SignUpView.swift in Sources */,
 				49DCC28B27AFC0E800BAE607 /* PlayWithComputer.swift in Sources */,
 				4952C31E27A30049007A4A0A /* ContentView.swift in Sources */,
@@ -288,6 +303,7 @@
 				49F0D4A827B30B4A0034B649 /* User.swift in Sources */,
 				49DCC28D27AFC11200BAE607 /* PlayWithRandomUser.swift in Sources */,
 				49DF2EB127A6CB41009A9EBA /* HomeView.swift in Sources */,
+				49F0D4AB27B313B50034B649 /* FirebaseReference.swift in Sources */,
 				49DF2EB527A6CE2E009A9EBA /* AccountView.swift in Sources */,
 				49DCC29327AFDB7600BAE607 /* MultiPlayerViewModel.swift in Sources */,
 				4952C31C27A30049007A4A0A /* GameApp.swift in Sources */,

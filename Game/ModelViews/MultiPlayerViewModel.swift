@@ -8,21 +8,26 @@
 import SwiftUI
 
 final class MultiPlayerViewModel: ObservableObject {
-
-    @AppStorage("users") private var userData: Data?
+    
+    @AppStorage("user") private var userData: Data?
     
     let columns: [GridItem] = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
     @Published var game = Game(id: UUID().uuidString, player1Id: "player1", player2Id: "player2", blockMoveForPlayerId: "player2", winningPlayerId: "", rematchPlayerId: [], moves: Array(repeating: nil, count: 9))
     
-//    @Published var current
+    @Published var currentUser: User!
     
     //condition that dictate game winning
     private let winPatterns: Set<Set<Int>> = [ [0, 1, 2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6] ]
     
     
     init(){
+        retrieveUser()
         
+        if currentUser == nil {
+            saveUser()
+        }
+        print("user id",currentUser.id)
     }
     
     func processPlayerMove(for position: Int) {
@@ -45,7 +50,7 @@ final class MultiPlayerViewModel: ObservableObject {
             return
         }
         //chek the win
-      
+        
         
     }
     func isSquareOccupied(in moves: [Move?], forIndex index: Int) -> Bool {
@@ -63,6 +68,29 @@ final class MultiPlayerViewModel: ObservableObject {
     
     func checkForDraw(in moves: [Move?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
+    }
+    
+    func saveUser(){
+        currentUser = User()
+        
+        do {
+            print("encoding user object")
+            let data = try JSONEncoder().encode(currentUser)
+            userData = data
+        }catch{
+            print("couldnt save user object")
+        }
+    }
+    
+    func retrieveUser(){
+        guard let userData = userData else { return }
+        do {
+            print("decoding user")
+            currentUser = try JSONDecoder().decode(User.self, from: userData)
+            
+        } catch {
+            print("no user saved")
+        }
     }
 }
 
