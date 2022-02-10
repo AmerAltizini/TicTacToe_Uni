@@ -9,16 +9,19 @@ import SwiftUI
 
 struct PlayWithRandomUser: View {
     @ObservedObject var viewModel:  MultiPlayerViewModel
-  
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 Text("Waiting for another player")
-                Button { 
-                    print("qiuit")
-                } label: {
-                    Text("Quit")
-                }
+                NavigationLink(destination: HomeView()) {
+                    Button {
+                        //                    print("qiuit")
+                        // navigate back
+                        viewModel.quiteGame()
+                    } label: {
+                        Text("Quit")
+                    }}
                 LoadingView()
                 Spacer()
                 
@@ -28,15 +31,17 @@ struct PlayWithRandomUser: View {
                             i in
                             ZStack {
                                 GameSquareView(proxy: geometry)
-                                PlayerIndicatorView(systemImageName: viewModel.game.moves[i]?.indicator ?? "applelogo")
+                                PlayerIndicatorView(systemImageName: viewModel.game?.moves[i]?.indicator ?? "applelogo")
                             }.onTapGesture {
                                 viewModel.processPlayerMove(for: i)
-                              
+                                
                             }
                         }
                     }
-                }
+                }.disabled(viewModel.checkForGameBoardStatus())
             }
+        }.onAppear {
+            viewModel.getTheGame()
         }
     }
 }

@@ -47,8 +47,18 @@ final class FirebaseService: ObservableObject {
     }
     
     func listenForGameChanges() {
-         
+        FirebaseReference(.Game).document(self.game.id).addSnapshotListener { documentSnapshot, error in
+            if error != nil {
+                print("Error Listening to changes", error?.localizedDescription)
+                return
+            }
+            
+            if let snapshot = documentSnapshot {
+                self.game = try? snapshot.data(as: Game.self)
+            }
+        }
     }
+    
     func createNewGame(with userId: String){
         //create new game object
         print("Create game for user:", userId)
@@ -58,10 +68,15 @@ final class FirebaseService: ObservableObject {
     }
     
     func updateGame(_ game: Game){
-        
+        do {
+            try FirebaseReference(.Game).document(game.id).setData(from: game)
+        } catch {
+            print("Error updating game", error.localizedDescription)
+        }
     }
     
     func quiteTheGame(){
-         
+        guard game != nil else { return }
+        FirebaseReference(.Game).document(self.game.id).delete()
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 final class MultiPlayerViewModel: ObservableObject {
     
@@ -13,9 +14,11 @@ final class MultiPlayerViewModel: ObservableObject {
     
     let columns: [GridItem] = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
-    @Published var game = Game(id: UUID().uuidString, player1Id: "player1", player2Id: "player2", blockMoveForPlayerId: "player2", winningPlayerId: "", rematchPlayerId: [], moves: Array(repeating: nil, count: 9))
+    @Published var game : Game?
     
     @Published var currentUser: User!
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     //condition that dictate game winning
     private let winPatterns: Set<Set<Int>> = [ [0, 1, 2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6] ]
@@ -30,22 +33,38 @@ final class MultiPlayerViewModel: ObservableObject {
         print("user id",currentUser.id)
     }
     
+    func getTheGame() {
+        FirebaseService.shared.startGame(with: currentUser.id)
+        
+        FirebaseService.shared.$game
+            .assign(to: \.game, on: self)
+            .store(in: &cancellables)
+        
+    }
+    
     func processPlayerMove(for position: Int) {
         //check if the position is occupied
         
-        if isSquareOccupied(in: game.moves, forIndex: position) { return }
+        guard game != nil else { return }
         
-        game.moves[position] = Move(isPlayer1: true, boardIndex: position)
-        game.blockMoveForPlayerId = "player2"
+        if isSquareOccupied(in: game!.moves, forIndex: position) { return }
         
+        game!.moves[position] = Move(isPlayer1: true, boardIndex: position)
+        game!.blockMoveForPlayerId = currentUser.id
+        
+        FirebaseService.shared.updateGame(game!)
         //block the move
         
-        if checkForWinCondition(for: true, in: game.moves){
+        if checkForWinCondition(for: true, in: game!.moves){
+            game!.winningPlayerId = currentUser.id
+            FirebaseService.shared.updateGame(game!)
             print("You have won")
             return
         }
         //check for draw
-        if checkForDraw(in: game.moves){
+        if checkForDraw(in: game!.moves){
+            game!.winningPlayerId = "0"
+            FirebaseService.shared.updateGame(game!)
             print("Draw")
             return
         }
@@ -70,8 +89,16 @@ final class MultiPlayerViewModel: ObservableObject {
         return moves.compactMap { $0 }.count == 9
     }
     
+    func quiteGame() {
+        FirebaseService.shared.quiteTheGame()
+    }
+    
+    func checkForGameBoardStatus() -> Bool {
+        return game != nil ? game!.blockMoveForPlayerId == currentUser.id : false
+    }
+    
     func saveUser(){
-        currentUser = User()
+        currentUser = User() 
         
         do {
             print("encoding user object")
