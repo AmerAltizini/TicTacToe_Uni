@@ -4,21 +4,20 @@ import SwiftUI
 struct FriendsList: View {
     @ObservedObject var viewModel = UserViewModel()
     @State var list = [String]()
+    
     var body: some View {
         VStack(alignment: .leading) {
-            
             List(viewModel.friends) { user in
                 HStack{
                     Text("\(user.firstName) \(user.lastName)").font(.system(size: 15, weight: .medium, design: .default)).padding().frame(minWidth: 200, maxWidth: .infinity,alignment: .leading)
                     Button(action: {
                         if !list.contains(user.id) {
                             list.append(user.id)
-                            viewModel.updateFriends(friendId: user.id)
-                            viewModel.fetchUsers()
+                            viewModel.removeFriends(friendId: user.id)
                         }else{
                             list = list.filter{$0 != user.id}
-                            viewModel.removeFriends(friendId: user.id)
-                            viewModel.fetchUsers()
+                            viewModel.updateFriends(friendId: user.id)
+                           
                         }
                     }) {
                         Image(systemName: list.contains(user.id) ? "plus.circle" : "minus.circle").resizable().resizable().frame(width: 20, height: 20,alignment: .trailing).padding()
@@ -33,6 +32,9 @@ struct FriendsList: View {
             }.listStyle(PlainListStyle())
                 .onTapGesture {return}
         }
+        .onDisappear{
+            list = []
+        }
         .onAppear{
             viewModel.fetchFriends()
         }
@@ -40,7 +42,7 @@ struct FriendsList: View {
         .padding()
         .background(.white)
         .navigationTitle("Friends")
-           
+        
     }
 }
 

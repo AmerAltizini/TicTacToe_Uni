@@ -46,10 +46,6 @@ struct TabBar : View {
                 UsersListView()
                     .navigationBarTitle("", displayMode: .inline)
                     .navigationBarHidden(true)
-                    .onAppear{
-                        usersViewModel.fetchFriends()
-                        usersViewModel.fetchUsers()
-                    }
             }
             .tabItem {
                 Image(systemName: "person.3")
