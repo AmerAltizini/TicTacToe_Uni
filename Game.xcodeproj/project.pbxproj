@@ -13,12 +13,11 @@
 		4952C32327A3004A007A4A0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4952C32227A3004A007A4A0A /* Preview Assets.xcassets */; };
 		495310A927B4603200280C87 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495310A827B4603200280C87 /* AlertItem.swift */; };
 		495310AB27B46D6D00280C87 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495310AA27B46D6D00280C87 /* Notification.swift */; };
-		49CF5EBA27B5A49E0086F698 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5EB927B5A49E0086F698 /* UserViewModel.swift */; };
-		49DA90F627B6D346006BF558 /* FriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA90F527B6D346006BF558 /* FriendsList.swift */; };
-		49DA90F827B6EBE7006BF558 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49DA90F727B6EBE7006BF558 /* Launch.storyboard */; };
 		49DCC28727AEE38300BAE607 /* TypeOfGameOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28627AEE38300BAE607 /* TypeOfGameOptionView.swift */; };
+		49DCC28927AF075E00BAE607 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28827AF075E00BAE607 /* Card.swift */; };
 		49DCC28B27AFC0E800BAE607 /* PlayWithComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28A27AFC0E800BAE607 /* PlayWithComputer.swift */; };
 		49DCC28D27AFC11200BAE607 /* PlayWithRandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28C27AFC11200BAE607 /* PlayWithRandomUser.swift */; };
+		49DCC28F27AFC13800BAE607 /* PlayWithFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */; };
 		49DCC29127AFC5AB00BAE607 /* TicTackToeWithComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC29027AFC5AB00BAE607 /* TicTackToeWithComputer.swift */; };
 		49DCC29327AFDB7600BAE607 /* MultiPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC29227AFDB7600BAE607 /* MultiPlayerViewModel.swift */; };
 		49DDC8F727A3348F00D01E22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */; };
@@ -43,12 +42,11 @@
 		4952C32227A3004A007A4A0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		495310A827B4603200280C87 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		495310AA27B46D6D00280C87 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		49CF5EB927B5A49E0086F698 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		49DA90F527B6D346006BF558 /* FriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsList.swift; sourceTree = "<group>"; };
-		49DA90F727B6EBE7006BF558 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		49DCC28627AEE38300BAE607 /* TypeOfGameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfGameOptionView.swift; sourceTree = "<group>"; };
+		49DCC28827AF075E00BAE607 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		49DCC28A27AFC0E800BAE607 /* PlayWithComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithComputer.swift; sourceTree = "<group>"; };
 		49DCC28C27AFC11200BAE607 /* PlayWithRandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithRandomUser.swift; sourceTree = "<group>"; };
+		49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithFriends.swift; sourceTree = "<group>"; };
 		49DCC29027AFC5AB00BAE607 /* TicTackToeWithComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTackToeWithComputer.swift; sourceTree = "<group>"; };
 		49DCC29227AFDB7600BAE607 /* MultiPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlayerViewModel.swift; sourceTree = "<group>"; };
 		49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				4952C31D27A30049007A4A0A /* ContentView.swift */,
 				4952C31F27A3004A007A4A0A /* Assets.xcassets */,
 				4952C32127A3004A007A4A0A /* Preview Content */,
-				49DA90F727B6EBE7006BF558 /* Launch.storyboard */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -133,6 +130,7 @@
 		4952C32927A31CBE007A4A0A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				49DCC28827AF075E00BAE607 /* Card.swift */,
 				49F0D4A527B2EE2C0034B649 /* Game.swift */,
 				49F0D4A727B30B4A0034B649 /* User.swift */,
 				495310A827B4603200280C87 /* AlertItem.swift */,
@@ -147,7 +145,6 @@
 				49DF2EA727A6C7DA009A9EBA /* SignupModelView.swift */,
 				49DCC29027AFC5AB00BAE607 /* TicTackToeWithComputer.swift */,
 				49DCC29227AFDB7600BAE607 /* MultiPlayerViewModel.swift */,
-				49CF5EB927B5A49E0086F698 /* UserViewModel.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -163,7 +160,7 @@
 				49DCC28627AEE38300BAE607 /* TypeOfGameOptionView.swift */,
 				49DCC28A27AFC0E800BAE607 /* PlayWithComputer.swift */,
 				49DCC28C27AFC11200BAE607 /* PlayWithRandomUser.swift */,
-				49DA90F527B6D346006BF558 /* FriendsList.swift */,
+				49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 				4952C32327A3004A007A4A0A /* Preview Assets.xcassets in Resources */,
 				4952C32027A3004A007A4A0A /* Assets.xcassets in Resources */,
 				49DDC8F727A3348F00D01E22 /* GoogleService-Info.plist in Resources */,
-				49DA90F827B6EBE7006BF558 /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,18 +305,18 @@
 				49DCC29127AFC5AB00BAE607 /* TicTackToeWithComputer.swift in Sources */,
 				49DCC28727AEE38300BAE607 /* TypeOfGameOptionView.swift in Sources */,
 				49DF2EA827A6C7DA009A9EBA /* SignupModelView.swift in Sources */,
+				49DCC28F27AFC13800BAE607 /* PlayWithFriends.swift in Sources */,
 				49F0D4A827B30B4A0034B649 /* User.swift in Sources */,
 				49DCC28D27AFC11200BAE607 /* PlayWithRandomUser.swift in Sources */,
 				49DF2EB127A6CB41009A9EBA /* HomeView.swift in Sources */,
 				49F0D4AB27B313B50034B649 /* FirebaseReference.swift in Sources */,
 				49DF2EB527A6CE2E009A9EBA /* AccountView.swift in Sources */,
 				495310A927B4603200280C87 /* AlertItem.swift in Sources */,
-				49CF5EBA27B5A49E0086F698 /* UserViewModel.swift in Sources */,
-				49DA90F627B6D346006BF558 /* FriendsList.swift in Sources */,
 				49DCC29327AFDB7600BAE607 /* MultiPlayerViewModel.swift in Sources */,
 				4952C31C27A30049007A4A0A /* GameApp.swift in Sources */,
 				49F0D4A627B2EE2C0034B649 /* Game.swift in Sources */,
 				495310AB27B46D6D00280C87 /* Notification.swift in Sources */,
+				49DCC28927AF075E00BAE607 /* Card.swift in Sources */,
 				49DF2EAF27A6C96C009A9EBA /* SignInView.swift in Sources */,
 				49DF2EB327A6CE14009A9EBA /* UsersListView.swift in Sources */,
 			);
@@ -451,7 +447,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Game/Preview Content\"";
@@ -461,7 +456,6 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -483,7 +477,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Game/Preview Content\"";
@@ -493,7 +486,6 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,3 +1,10 @@
+//
+//  SignupModelView.swift
+//  Game
+//
+//  Created by M1 Mac 1 on 1/30/22.
+//
+
 import Foundation
 import FirebaseAuth
 import Firebase
@@ -94,8 +101,7 @@ class AppViewModel: ObservableObject {
             db.collection("users").document(result!.user.uid).setData([
                 "firstName": firstName,
                 "lastName": lastName,
-                "uid": result!.user.uid,
-                "friends": []
+                "uid": result!.user.uid
             ]) { err in
                 if let err = err {
                     self?.signInLoading = false
@@ -108,6 +114,8 @@ class AppViewModel: ObservableObject {
                     }
                 }
             }
+            
+            
             
         }
     }

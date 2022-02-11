@@ -1,3 +1,10 @@
+//
+//  AlertItem.swift
+//  Game
+//
+//  Created by M1 Mac 1 on 2/9/22.
+//
+
 import SwiftUI
 
 struct AlertItem: Identifiable {

@@ -1,49 +1,51 @@
+//
+//  TypeOfGameOptionView.swift
+//  Game
+//
+//  Created by M1 Mac 1 on 2/5/22.
+//
+
 import SwiftUI
 
 struct TypeOfGameOptionView: View {
     
     @StateObject var viewModel = MultiPlayerViewModel()
-    @State private var showModalWithComputer = false
-    @State private var showModalWithRandomUser = false
-    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            
-            Button(action: {
-                self.showModalWithComputer.toggle()
-            }) {
-                Text("Play with computer").font(.system(size: 15, weight: .medium, design: .default)).padding() .frame(minWidth: 200, maxWidth: .infinity,alignment: .center)
+            Text("Choose game type").font(.title3).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading)
+            NavigationLink(destination: PlayWithComputer()) {
+                CardView(card: Card.option1  )
             }
-            .shadow(radius: 5)
-            .frame(maxWidth: .infinity, minHeight: 50,alignment: .leading)
-            .foregroundColor(Color.white).background(Color.black)
-            .cornerRadius(8)
-            .fullScreenCover(isPresented: $showModalWithComputer) {
-                PlayWithComputer(showModalWithComputer: self.$showModalWithComputer)
+            NavigationLink(destination: PlayWithRandomUser(viewModel: MultiPlayerViewModel())) {
+                CardView(card: Card.option2)
+                
             }
-            
-            Button(action: {
-                self.showModalWithRandomUser.toggle()
-            }) {
-                Text("Play with random user").font(.system(size: 15, weight: .medium, design: .default)).padding()
-                    .frame(minWidth: 200, maxWidth: .infinity, alignment: .center)
+            NavigationLink(destination: PlayWithFriends()) {
+                CardView(card: Card.option3)
             }
-            .shadow(radius: 5)
-            .frame(maxWidth: .infinity, minHeight: 50,alignment: .leading)
-            .foregroundColor(Color.white).background(Color.black)
-            .cornerRadius(8)
-            .fullScreenCover(isPresented: $showModalWithRandomUser) {
-                PlayWithRandomUser(viewModel: MultiPlayerViewModel(),  showModalWithRandomUser: self.$showModalWithRandomUser)
-            }
-            
-        }.navigationTitle("Choose game type")
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        } .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .padding()
         
     }
 }
 
+struct CardView: View {
+    let card: Card
+    var body: some View {
+        
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 15)
+                .fill(.white)
+                .shadow(radius: 5)
+            VStack {
+                Text(card.title)
+                    .padding()
+                    .foregroundColor(.black)
+            }
+        }.frame(height: 70)
+    }
+}
 
 
 struct TypeOfGameOptionView_Previews: PreviewProvider {
