@@ -13,9 +13,11 @@ struct UsersListView: View {
                     Button(action: {
                         if !list.contains(user.id) {
                             list.append(user.id)
+                            viewModel.fetchUsers()
                             viewModel.updateFriends(friendId: user.id)
                         }else{
                             list = list.filter{$0 != user.id}
+                            viewModel.fetchUsers()
                             viewModel.removeFriends(friendId: user.id)
                         }
                     }) {

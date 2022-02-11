@@ -29,7 +29,7 @@ struct AccountView: View {
             }
             
             Link(destination: URL(string: "https://wa.me/15551234567?text=Please%20join%20me%20play%20tik%20tak%20toe")!, label : {
-                Text("Share to others ").font(.system(size: 25, weight: .medium , design: .default))
+                Text("Share to others ").font(.system(size: 25, weight: .medium , design: .default)).foregroundColor(.blue)
             })
             Spacer()
             Button(action: {

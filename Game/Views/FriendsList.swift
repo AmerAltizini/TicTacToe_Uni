@@ -14,9 +14,11 @@ struct FriendsList: View {
                         if !list.contains(user.id) {
                             list.append(user.id)
                             viewModel.updateFriends(friendId: user.id)
+                            viewModel.fetchUsers()
                         }else{
                             list = list.filter{$0 != user.id}
                             viewModel.removeFriends(friendId: user.id)
+                            viewModel.fetchUsers()
                         }
                     }) {
                         Image(systemName: list.contains(user.id) ? "plus.circle" : "minus.circle").resizable().resizable().frame(width: 20, height: 20,alignment: .trailing).padding()

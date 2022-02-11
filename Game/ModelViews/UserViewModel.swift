@@ -18,11 +18,9 @@ class UserViewModel: ObservableObject {
     func fetchUsers() {
         let db = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
-            print("Could not find firebase uid")
             return
         }
         guard var friends =  self.currentUserInformation?.friends else {
-            print("Could not friends")
             return
         }
         friends.append(uid)
@@ -48,11 +46,9 @@ class UserViewModel: ObservableObject {
     func fetchFriends() {
         let db = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
-            print("Could not find firebase uid")
             return
         }
         guard var friendsList =  self.currentUserInformation?.friends else {
-            print("Could not friends")
             return
         }
         if friendsList.isEmpty {
