@@ -13,10 +13,11 @@ import UIKit
 
 struct ContentView: View {
     @EnvironmentObject var viewModel : AppViewModel
+    let userViewModel = UserViewModel()
     var body: some View {
         NavigationView {
             if  viewModel.signedIn {
-                TabBar()
+                TabBar().environmentObject(userViewModel)
             }
             else {
                 SignInView()
@@ -26,12 +27,14 @@ struct ContentView: View {
         .navigationBarHidden(true)
         .onAppear {
             viewModel.signedIn = viewModel.isSignedIn
+           
         }
     }
 }
 
 
 struct TabBar : View {
+    @EnvironmentObject var usersViewModel : UserViewModel
     init() {
         UITabBar.appearance().backgroundColor = UIColor.tertiarySystemFill
     }
@@ -70,7 +73,9 @@ struct TabBar : View {
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
         .onAppear() {
+            usersViewModel.fetchUsers()
             UITabBar.appearance().barTintColor = .black
+            
         }
     }
     

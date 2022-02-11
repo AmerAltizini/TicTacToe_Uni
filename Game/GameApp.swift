@@ -16,6 +16,7 @@ struct GameApp: App {
   
   var body: some Scene {
       let  viewModel = AppViewModel()
+     
       WindowGroup {
         ContentView().environmentObject(viewModel)
     }

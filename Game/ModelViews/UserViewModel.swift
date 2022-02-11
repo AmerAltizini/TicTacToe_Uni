@@ -6,35 +6,72 @@ import FirebaseFirestoreSwift
 class UserViewModel: ObservableObject {
     
     @Published var users = [NonLocalUser]()
-    @Published var currentUser : NonLocalUser? = nil
+    @Published var friends = [NonLocalUser]()
     @Published var currentUserInformation : NonLocalUser?
-    
+    @Published var userFriends = [String]()
     
     init() {
-        
-        let db = Firestore.firestore()
-        
-        db.collection("users").getDocuments { (snap, err) in
-            
-            if err != nil{
-                
-                print((err?.localizedDescription)!)
-                return
-            }
-            
-            for i in snap!.documents{
-                let id = i.documentID
-                let firstName = i.get("firstName") as! String
-                let lastName = i.get("lastName") as! String
-                let friends = i.get("friends") as? [String]
-                
-                self.users.append(NonLocalUser(id: id,firstName: firstName, lastName: lastName, friends: friends))
-                
-            }
-        }
         fetchCurrentUser()
+        fetchUsers()
     }
     
+    func fetchUsers() {
+        let db = Firestore.firestore()
+        guard let uid =  Auth.auth().currentUser?.uid else {
+            print("Could not find firebase uid")
+            return
+        }
+        guard var friends =  self.currentUserInformation?.friends else {
+            print("Could not friends")
+            return
+        }
+        friends.append(uid)
+        
+        var dbRef = friends.isEmpty ? db.collection("users").whereField("uid", isNotEqualTo: uid) : db.collection("users").whereField("uid", notIn: friends)
+        
+        
+        dbRef.addSnapshotListener { (snapshot, error) in
+            
+            if let snapshot = snapshot {
+                
+                self.users = snapshot.documents.map { doc in
+                    return NonLocalUser(id: doc.documentID,firstName: doc.data()["firstName"] as! String, lastName: doc.data()["lastName"] as! String, friends:  doc.data()["friends"] as! [String])
+                    
+                }
+            }
+            
+        }
+        self.fetchFriends()
+        
+    }
+    
+    func fetchFriends() {
+        let db = Firestore.firestore()
+        guard let uid =  Auth.auth().currentUser?.uid else {
+            print("Could not find firebase uid")
+            return
+        }
+        guard var friendsList =  self.currentUserInformation?.friends else {
+            print("Could not friends")
+            return
+        }
+        if friendsList.isEmpty {
+            return
+        }
+        var dbRef = db.collection("users").whereField("uid", in: friendsList)
+        
+        dbRef.addSnapshotListener { (snapshot, error) in
+            
+            if let snapshot = snapshot {
+                
+                self.friends = snapshot.documents.map { doc in
+                    return NonLocalUser(id: doc.documentID,firstName: doc.data()["firstName"] as! String, lastName: doc.data()["lastName"] as! String, friends:  doc.data()["friends"] as! [String])
+                    
+                }
+            }
+            
+        }
+    }
     func fetchCurrentUser() {
         let database = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
@@ -52,12 +89,16 @@ class UserViewModel: ObservableObject {
                 return
                 
             }
+            
             let uid = snapshot?.documentID ?? ""
             let firstName = data["firstName"] as? String ?? ""
             let lastName = data["lastName"] as? String ?? ""
-            let friends = data["friends"] as? [String]
+            let friends = data["friends"] as? [String] ?? []
             self.currentUserInformation = NonLocalUser(id: uid,firstName: firstName, lastName: lastName, friends: friends)
+            
+            self.userFriends = friends
         }
+        self.fetchUsers()
         
     }
     
@@ -71,6 +112,8 @@ class UserViewModel: ObservableObject {
         userRef.updateData([
             "friends": FieldValue.arrayUnion([friendId])
         ])
+        self.fetchUsers()
+       
     }
     
     func removeFriends(friendId: String) {
@@ -83,5 +126,7 @@ class UserViewModel: ObservableObject {
         userRef.updateData([
             "friends": FieldValue.arrayRemove([friendId])
         ])
+        self.fetchUsers()
+      
     }
 }

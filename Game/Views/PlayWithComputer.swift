@@ -78,9 +78,3 @@ struct PlayWithComputer: View {
             .padding()
     }
 }
-
-//struct PlayWithComputer_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlayWithComputer()
-//    }
-//}

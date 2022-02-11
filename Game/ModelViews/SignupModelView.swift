@@ -101,7 +101,8 @@ class AppViewModel: ObservableObject {
             db.collection("users").document(result!.user.uid).setData([
                 "firstName": firstName,
                 "lastName": lastName,
-                "uid": result!.user.uid
+                "uid": result!.user.uid,
+                "friends": []
             ]) { err in
                 if let err = err {
                     self?.signInLoading = false
@@ -114,8 +115,6 @@ class AppViewModel: ObservableObject {
                     }
                 }
             }
-            
-            
             
         }
     }
