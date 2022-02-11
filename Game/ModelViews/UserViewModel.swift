@@ -73,5 +73,15 @@ class UserViewModel: ObservableObject {
         ])
     }
     
-   
+    func removeFriends(friendId: String) {
+        let db = Firestore.firestore()
+        guard let uid =  Auth.auth().currentUser?.uid else {
+            print("Could not find firebase uid")
+            return
+        }
+        let userRef = db.collection("users").document(uid)
+        userRef.updateData([
+            "friends": FieldValue.arrayRemove([friendId])
+        ])
+    }
 }
