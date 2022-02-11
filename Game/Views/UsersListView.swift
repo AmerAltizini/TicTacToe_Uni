@@ -33,8 +33,12 @@ struct UsersListView: View {
                 .padding(.vertical)
             }.listStyle(PlainListStyle())
                 .onTapGesture {return}
+        }.onDisappear{
+            list = []
+            
         }
         .onAppear{
+            list = []
             viewModel.fetchUsers()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
