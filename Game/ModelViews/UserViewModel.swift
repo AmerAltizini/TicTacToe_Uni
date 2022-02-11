@@ -26,7 +26,7 @@ class UserViewModel: ObservableObject {
                 let id = i.documentID
                 let firstName = i.get("firstName") as! String
                 let lastName = i.get("lastName") as! String
-                let friends = i.get("friends") as! [String]?
+                let friends = i.get("friends") as? [String]
                 
                 self.users.append(NonLocalUser(id: id,firstName: firstName, lastName: lastName, friends: friends))
                 
@@ -61,15 +61,17 @@ class UserViewModel: ObservableObject {
         
     }
     
-    func updateUser(_ user : NonLocalUser) {
-        print("user123", user)
+    func updateFriends(friendId: String) {
         let db = Firestore.firestore()
-        let documentId = user.id
-        do {
-            try db.collection("users").document(documentId).setData(from: user)
+        guard let uid =  Auth.auth().currentUser?.uid else {
+            print("Could not find firebase uid")
+            return
         }
-        catch {
-            print(error)
-        }
+        let userRef = db.collection("users").document(uid)
+        userRef.updateData([
+            "friends": FieldValue.arrayUnion([friendId])
+        ])
     }
+    
+   
 }

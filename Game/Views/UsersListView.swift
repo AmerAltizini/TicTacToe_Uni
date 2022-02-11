@@ -12,14 +12,17 @@ struct UsersListView: View {
                 HStack{
                     Text("\(user.firstName) \(user.lastName)").font(.system(size: 15, weight: .medium, design: .default)).padding().frame(minWidth: 200, maxWidth: .infinity,alignment: .leading)
                     Button(action: {
-                        print(viewModel.currentUserInformation,"please")
-//                        let friendsList = viewModel.currentUserInformation.friends
-//                        var duplicateArray = friendsList
-//                        if (duplicateArray?.append(user.id)) == nil {
+                        viewModel.updateFriends(friendId: user.id)
+//                        let friendsList = viewModel.currentUserInformation?.friends
+//                        var duplicateArray = [String]()
+//                        if friendsList == nil {
+//                            duplicateArray = []
+//                        } else {
 //                            duplicateArray = friendsList
+//                            duplicateArray = duplicateArray.append(user.id)
 //                        }
-////                         var updatedFriendsList = duplicateArray.append(user.id)?
-//                        viewModel.updateUser(NonLocalUser(id: viewModel.currentUserInformation.id, firstName: viewModel.currentUserInformation.firstName, lastName: viewModel.currentUserInformation.lastName, friends: duplicateArray))
+//                         var updatedFriendsList = duplicateArray.append(user.id)?
+//                        viewModel.updateUser(id: viewModel.currentUserInformation?.id, firstName: viewModel.currentUserInformation?.firstName, lastName: viewModel.currentUserInformation?.lastName , friends: user.id)
                         
                     }) {
                         Image(systemName: "plus.circle").resizable().resizable().frame(width: 20, height: 20,alignment: .trailing).padding()
