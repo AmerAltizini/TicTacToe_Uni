@@ -1,15 +1,14 @@
-//
-//  User.swift
-//  Game
-//
-//  Created by M1 Mac 1 on 2/8/22.
-//
-
 import Foundation
 
 struct User: Codable {
     var id = UUID().uuidString
+    
+}
+
+struct NonLocalUser: Identifiable, Codable {
+    var id = UUID().uuidString
     var firstName: String
     var lastName: String
+    var friends: [String]?
 }
 

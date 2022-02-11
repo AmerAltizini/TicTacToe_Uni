@@ -1,10 +1,3 @@
-//
-//  TypeOfGameOptionView.swift
-//  Game
-//
-//  Created by M1 Mac 1 on 2/5/22.
-//
-
 import SwiftUI
 
 struct TypeOfGameOptionView: View {
