@@ -33,7 +33,7 @@ class UserViewModel: ObservableObject {
             if let snapshot = snapshot {
                 
                 self.users = snapshot.documents.map { doc in
-                    return NonLocalUser(id: doc.documentID,firstName: doc.data()["firstName"] as! String, lastName: doc.data()["lastName"] as! String, friends:  doc.data()["friends"] as! [String])
+                    return NonLocalUser(id: doc.documentID,firstName: doc.data()["firstName"] as? String ?? "", lastName: doc.data()["lastName"] as? String ?? "", friends: doc.data()["friends"] as? [String] ?? [])
                     
                 }
             }
@@ -61,7 +61,7 @@ class UserViewModel: ObservableObject {
             if let snapshot = snapshot {
                 
                 self.friends = snapshot.documents.map { doc in
-                    return NonLocalUser(id: doc.documentID,firstName: doc.data()["firstName"] as! String, lastName: doc.data()["lastName"] as! String, friends:  doc.data()["friends"] as! [String])
+                    return NonLocalUser(id: doc.documentID,firstName: doc.data()["firstName"] as? String ?? "", lastName: doc.data()["lastName"] as? String ?? "", friends:  doc.data()["friends"] as? [String] ?? [])
                     
                 }
             }
