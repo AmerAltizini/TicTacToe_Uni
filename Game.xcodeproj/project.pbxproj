@@ -14,10 +14,8 @@
 		495310A927B4603200280C87 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495310A827B4603200280C87 /* AlertItem.swift */; };
 		495310AB27B46D6D00280C87 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495310AA27B46D6D00280C87 /* Notification.swift */; };
 		49DCC28727AEE38300BAE607 /* TypeOfGameOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28627AEE38300BAE607 /* TypeOfGameOptionView.swift */; };
-		49DCC28927AF075E00BAE607 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28827AF075E00BAE607 /* Card.swift */; };
 		49DCC28B27AFC0E800BAE607 /* PlayWithComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28A27AFC0E800BAE607 /* PlayWithComputer.swift */; };
 		49DCC28D27AFC11200BAE607 /* PlayWithRandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28C27AFC11200BAE607 /* PlayWithRandomUser.swift */; };
-		49DCC28F27AFC13800BAE607 /* PlayWithFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */; };
 		49DCC29127AFC5AB00BAE607 /* TicTackToeWithComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC29027AFC5AB00BAE607 /* TicTackToeWithComputer.swift */; };
 		49DCC29327AFDB7600BAE607 /* MultiPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCC29227AFDB7600BAE607 /* MultiPlayerViewModel.swift */; };
 		49DDC8F727A3348F00D01E22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */; };
@@ -43,10 +41,8 @@
 		495310A827B4603200280C87 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		495310AA27B46D6D00280C87 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		49DCC28627AEE38300BAE607 /* TypeOfGameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfGameOptionView.swift; sourceTree = "<group>"; };
-		49DCC28827AF075E00BAE607 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		49DCC28A27AFC0E800BAE607 /* PlayWithComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithComputer.swift; sourceTree = "<group>"; };
 		49DCC28C27AFC11200BAE607 /* PlayWithRandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithRandomUser.swift; sourceTree = "<group>"; };
-		49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithFriends.swift; sourceTree = "<group>"; };
 		49DCC29027AFC5AB00BAE607 /* TicTackToeWithComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTackToeWithComputer.swift; sourceTree = "<group>"; };
 		49DCC29227AFDB7600BAE607 /* MultiPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlayerViewModel.swift; sourceTree = "<group>"; };
 		49DDC8F627A3348F00D01E22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -130,7 +126,6 @@
 		4952C32927A31CBE007A4A0A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				49DCC28827AF075E00BAE607 /* Card.swift */,
 				49F0D4A527B2EE2C0034B649 /* Game.swift */,
 				49F0D4A727B30B4A0034B649 /* User.swift */,
 				495310A827B4603200280C87 /* AlertItem.swift */,
@@ -160,7 +155,6 @@
 				49DCC28627AEE38300BAE607 /* TypeOfGameOptionView.swift */,
 				49DCC28A27AFC0E800BAE607 /* PlayWithComputer.swift */,
 				49DCC28C27AFC11200BAE607 /* PlayWithRandomUser.swift */,
-				49DCC28E27AFC13800BAE607 /* PlayWithFriends.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,7 +299,6 @@
 				49DCC29127AFC5AB00BAE607 /* TicTackToeWithComputer.swift in Sources */,
 				49DCC28727AEE38300BAE607 /* TypeOfGameOptionView.swift in Sources */,
 				49DF2EA827A6C7DA009A9EBA /* SignupModelView.swift in Sources */,
-				49DCC28F27AFC13800BAE607 /* PlayWithFriends.swift in Sources */,
 				49F0D4A827B30B4A0034B649 /* User.swift in Sources */,
 				49DCC28D27AFC11200BAE607 /* PlayWithRandomUser.swift in Sources */,
 				49DF2EB127A6CB41009A9EBA /* HomeView.swift in Sources */,
@@ -316,7 +309,6 @@
 				4952C31C27A30049007A4A0A /* GameApp.swift in Sources */,
 				49F0D4A627B2EE2C0034B649 /* Game.swift in Sources */,
 				495310AB27B46D6D00280C87 /* Notification.swift in Sources */,
-				49DCC28927AF075E00BAE607 /* Card.swift in Sources */,
 				49DF2EAF27A6C96C009A9EBA /* SignInView.swift in Sources */,
 				49DF2EB327A6CE14009A9EBA /* UsersListView.swift in Sources */,
 			);
