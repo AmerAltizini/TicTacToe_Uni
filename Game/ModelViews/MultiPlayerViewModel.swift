@@ -1,10 +1,3 @@
-//
-//  MultiPlayerViewModel.swift
-//  Game
-//
-//  Created by M1 Mac 1 on 2/6/22.
-//
-
 import SwiftUI
 import Combine
 
@@ -14,9 +7,22 @@ final class MultiPlayerViewModel: ObservableObject {
     
     let columns: [GridItem] = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
-    @Published var game : Game?
+    @Published var game : Game? {
+        didSet {
+            checkIfGameIsOver()
+            //check the gamme status
+            if game == nil {
+                updateGameNotificationFor(.finished)
+            } else{
+                game?.player2Id == "" ?  updateGameNotificationFor(.waitingForPLayer) :
+                updateGameNotificationFor(.started)
+            }
+        }
+    }
     
+    @Published var gameNotification = GameNotification.waitingForPlayer
     @Published var currentUser: User!
+    @Published var alertItem: AlertItem?
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -49,13 +55,13 @@ final class MultiPlayerViewModel: ObservableObject {
         
         if isSquareOccupied(in: game!.moves, forIndex: position) { return }
         
-        game!.moves[position] = Move(isPlayer1: true, boardIndex: position)
+        game!.moves[position] = Move(isPlayer1: isPlayerOne(), boardIndex: position)
         game!.blockMoveForPlayerId = currentUser.id
         
         FirebaseService.shared.updateGame(game!)
         //block the move
         
-        if checkForWinCondition(for: true, in: game!.moves){
+        if checkForWinCondition(for: isPlayerOne(), in: game!.moves){
             game!.winningPlayerId = currentUser.id
             FirebaseService.shared.updateGame(game!)
             print("You have won")
@@ -97,8 +103,59 @@ final class MultiPlayerViewModel: ObservableObject {
         return game != nil ? game!.blockMoveForPlayerId == currentUser.id : false
     }
     
+    func isPlayerOne() -> Bool {
+        return game != nil ? game!.player1Id == currentUser.id : false
+    }
+    
+    func checkIfGameIsOver(){
+        alertItem = nil
+        
+        guard game != nil else { return }
+        
+        if game!.winningPlayerId == "0" {
+            alertItem = AlertContext.draw
+            //draw
+        } else if game!.winningPlayerId != "" {
+            if game!.winningPlayerId == currentUser.id {
+                alertItem = AlertContext.youWin
+                //we won
+            } else {
+                alertItem = AlertContext.youLost
+                //we lost
+            }
+        }
+    }
+    func resetGame() {
+        guard game != nil else {
+            alertItem = AlertContext.quit
+            return
+        }
+        if game!.rematchPlayerId.count == 1 {
+            game!.moves = Array(repeating: nil, count: 9)
+            game!.winningPlayerId = ""
+            game!.blockMoveForPlayerId = game!.player2Id
+            
+        } else if game!.rematchPlayerId.count == 2 {
+            game!.rematchPlayerId = []
+        }
+        
+        game!.rematchPlayerId.append(currentUser.id)
+        FirebaseService.shared.updateGame(game!)
+    }
+    
+    func updateGameNotificationFor(_ state: GameState){
+        switch state {
+        case .started:
+            gameNotification = GameNotification.gameHasStarted
+        case .waitingForPLayer:
+            gameNotification = GameNotification.waitingForPlayer
+        case .finished:
+            gameNotification = GameNotification.gameFinished
+        }
+    }
+    
     func saveUser(){
-        currentUser = User() 
+        currentUser = User()
         
         do {
             print("encoding user object")

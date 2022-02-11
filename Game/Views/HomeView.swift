@@ -1,10 +1,3 @@
-//
-//  HomeView.swift
-//  Game
-//
-//  Created by M1 Mac 1 on 1/30/22.
-//
-
 import SwiftUI
 
 struct HomeView: View {
