@@ -1,34 +1,34 @@
-//
-//  HomeView.swift
-//  Game
-//
-//  Created by M1 Mac 1 on 1/30/22.
-//
-
 import SwiftUI
 
 struct HomeView: View {
+    @State var selection: Int? = nil
     var body: some View {
-        
-        VStack {
-            ZStack {
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                    .fill(.white)
-                
-                VStack {
-                    Image(systemName: "square.grid.3x3.fill")
+        ScrollView(.vertical, showsIndicators:false)
+        {
+            VStack(alignment: .leading, spacing: 8){
+                Text("Games").font(.largeTitle).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading)
+                ZStack(alignment: .bottom) {
+                    Image("tic")
                         .resizable()
-                        .frame(width: 50, height: 50)
-                        .border(Color.blue)
-                    
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 220)
+                        .cornerRadius(20)
+                    HStack(alignment: .center, spacing:5){
+                        Text("Tik Tak Toe").foregroundColor(.white).font(.system(size: 25, weight: .heavy, design: .default)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        NavigationLink(destination: TypeOfGameOptionView(), tag: 1, selection: $selection) {
+                            Button(action: {
+                                self.selection = 1
+                            }){
+                                Text("Play")
+                                    .font(.system(size: 15, weight: .heavy, design: .default))
+                                    .foregroundColor(Color.black).frame(width: 100, height: 30).background(Color.white).cornerRadius(30)
+                            }}
+                    }.padding()
                 }
-                .padding(20)
-                .multilineTextAlignment(.center)
                 
-            }
-            .frame(width: 80, height: 80)
+            }.padding(.horizontal)
         }
-        Spacer()
     }
 }
 
@@ -37,3 +37,5 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+
