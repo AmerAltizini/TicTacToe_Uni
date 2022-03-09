@@ -1,5 +1,4 @@
 import SwiftUI
-
 struct SignInView : View {
     @State var email = ""
     @State var password = ""

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192C244527D7B275001FECA4 /* ContenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244427D7B275001FECA4 /* ContenView.swift */; };
+		192C244627D7B275001FECA4 /* MathGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244227D7B275001FECA4 /* MathGameApp.swift */; };
+		192C244727D7B275001FECA4 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244327D7B275001FECA4 /* AnswerButton.swift */; };
+		192C244E27D8EC4B001FECA4 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244927D8EC4A001FECA4 /* AppUtils.swift */; };
+		192C244F27D8EC4B001FECA4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244A27D8EC4A001FECA4 /* DateExtension.swift */; };
+		192C245027D8EC4B001FECA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244B27D8EC4A001FECA4 /* SceneDelegate.swift */; };
+		192C245127D8EC4B001FECA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244C27D8EC4A001FECA4 /* AppDelegate.swift */; };
+		192C245227D8EC4B001FECA4 /* ConteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C244D27D8EC4B001FECA4 /* ConteView.swift */; };
 		19C1A84527D7612800EF40B3 /* Play with Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1A84427D7612800EF40B3 /* Play with Friend.swift */; };
 		19C1A86327D76E0100EF40B3 /* PlayWithFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C1A86227D76E0100EF40B3 /* PlayWithFriendViewModel.swift */; };
 		4952C31C27A30049007A4A0A /* GameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C31B27A30049007A4A0A /* GameApp.swift */; };
@@ -38,6 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		192C244227D7B275001FECA4 /* MathGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathGameApp.swift; sourceTree = "<group>"; };
+		192C244327D7B275001FECA4 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		192C244427D7B275001FECA4 /* ContenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContenView.swift; sourceTree = "<group>"; };
+		192C244927D8EC4A001FECA4 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		192C244A27D8EC4A001FECA4 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		192C244B27D8EC4A001FECA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		192C244C27D8EC4A001FECA4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		192C244D27D8EC4B001FECA4 /* ConteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConteView.swift; sourceTree = "<group>"; };
 		19C1A84427D7612800EF40B3 /* Play with Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Play with Friend.swift"; sourceTree = "<group>"; };
 		19C1A86227D76E0100EF40B3 /* PlayWithFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithFriendViewModel.swift; sourceTree = "<group>"; };
 		4952C31827A30049007A4A0A /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +176,14 @@
 		49DF2EA927A6C81F009A9EBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				192C244C27D8EC4A001FECA4 /* AppDelegate.swift */,
+				192C244927D8EC4A001FECA4 /* AppUtils.swift */,
+				192C244D27D8EC4B001FECA4 /* ConteView.swift */,
+				192C244A27D8EC4A001FECA4 /* DateExtension.swift */,
+				192C244B27D8EC4A001FECA4 /* SceneDelegate.swift */,
+				192C244227D7B275001FECA4 /* MathGameApp.swift */,
+				192C244327D7B275001FECA4 /* AnswerButton.swift */,
+				192C244427D7B275001FECA4 /* ContenView.swift */,
 				49DF2EAA27A6C891009A9EBA /* SignUpView.swift */,
 				49DF2EAE27A6C96C009A9EBA /* SignInView.swift */,
 				49DF2EB027A6CB41009A9EBA /* HomeView.swift */,
@@ -309,18 +333,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F0D4AD27B314B10034B649 /* FirebaseService.swift in Sources */,
+				192C244F27D8EC4B001FECA4 /* DateExtension.swift in Sources */,
 				49DF2EAB27A6C891009A9EBA /* SignUpView.swift in Sources */,
+				192C244627D7B275001FECA4 /* MathGameApp.swift in Sources */,
+				192C244727D7B275001FECA4 /* AnswerButton.swift in Sources */,
 				49DCC28B27AFC0E800BAE607 /* PlayWithComputer.swift in Sources */,
+				192C245227D8EC4B001FECA4 /* ConteView.swift in Sources */,
 				4952C31E27A30049007A4A0A /* ContentView.swift in Sources */,
 				49DCC29127AFC5AB00BAE607 /* TicTackToeWithComputer.swift in Sources */,
 				49DCC28727AEE38300BAE607 /* TypeOfGameOptionView.swift in Sources */,
 				49DF2EA827A6C7DA009A9EBA /* SignupModelView.swift in Sources */,
+				192C244E27D8EC4B001FECA4 /* AppUtils.swift in Sources */,
 				49F0D4A827B30B4A0034B649 /* User.swift in Sources */,
+				192C245027D8EC4B001FECA4 /* SceneDelegate.swift in Sources */,
 				49DCC28D27AFC11200BAE607 /* PlayWithRandomUser.swift in Sources */,
 				19C1A86327D76E0100EF40B3 /* PlayWithFriendViewModel.swift in Sources */,
 				49DF2EB127A6CB41009A9EBA /* HomeView.swift in Sources */,
 				49F0D4AB27B313B50034B649 /* FirebaseReference.swift in Sources */,
 				49DF2EB527A6CE2E009A9EBA /* AccountView.swift in Sources */,
+				192C245127D8EC4B001FECA4 /* AppDelegate.swift in Sources */,
 				495310A927B4603200280C87 /* AlertItem.swift in Sources */,
 				49CF5EBA27B5A49E0086F698 /* UserViewModel.swift in Sources */,
 				49DA90F627B6D346006BF558 /* FriendsList.swift in Sources */,
@@ -329,6 +360,7 @@
 				19C1A84527D7612800EF40B3 /* Play with Friend.swift in Sources */,
 				49F0D4A627B2EE2C0034B649 /* Game.swift in Sources */,
 				495310AB27B46D6D00280C87 /* Notification.swift in Sources */,
+				192C244527D7B275001FECA4 /* ContenView.swift in Sources */,
 				49DF2EAF27A6C96C009A9EBA /* SignInView.swift in Sources */,
 				49DF2EB327A6CE14009A9EBA /* UsersListView.swift in Sources */,
 			);
@@ -463,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Game/Preview Content\"";
-				DEVELOPMENT_TEAM = A5J3X5CV74;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -495,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Game/Preview Content\"";
-				DEVELOPMENT_TEAM = A5J3X5CV74;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
