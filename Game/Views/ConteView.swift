@@ -38,7 +38,7 @@ struct ConteView: View {
                 Text("activityType = \(activityType)").padding()
                 Text("stepCount = \(stepsCount)").padding()
                 Spacer()
-            }.navigationBarTitle("Step Counter")
+            }.navigationBarTitle("Activity Challenge")
         }.onAppear {
             print("onAppear")
             // TODO: check previous Start Date if any
