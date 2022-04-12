@@ -1,3 +1,4 @@
+//account view page
 import SwiftUI
 
 struct AccountView: View {
@@ -7,7 +8,7 @@ struct AccountView: View {
     init() {
         userViewModel.fetchCurrentUser()
     }
-    
+    //account profile and name of the user account
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             HStack{
@@ -20,18 +21,19 @@ struct AccountView: View {
             }else{
                 Text("").font(.system(size: 35, weight: .heavy, design: .default))
             }
-            
+            // friends page label
             NavigationLink(destination: FriendsList()){
                 HStack {
                     Image(systemName: "person.2").resizable().frame(width: 40, height: 20, alignment: .center)
                     Text("Friends").font(.system(size: 25, weight: .medium , design: .default))
                 }.frame(width: 200, height: 50).foregroundColor(.blue)
             }
-            
+            //sharing account detail through WhatsApp
             Link(destination: URL(string: "https://wa.me/15551234567?text=Please%20join%20me%20play%20tik%20tak%20toe")!, label : {
                 Text("Share to others ").font(.system(size: 25, weight: .medium , design: .default)).foregroundColor(.blue)
             })
             Spacer()
+            //sign out button
             Button(action: {
                 viewModel.signOut()
             }) {

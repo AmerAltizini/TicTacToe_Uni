@@ -14,7 +14,7 @@ class UserViewModel: ObservableObject {
         fetchCurrentUser()
         fetchUsers()
     }
-    
+    //fetching users
     func fetchUsers() {
         let db = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
@@ -42,7 +42,7 @@ class UserViewModel: ObservableObject {
         self.fetchFriends()
         
     }
-    
+    //fetching friends
     func fetchFriends() {
         let db = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
@@ -68,6 +68,7 @@ class UserViewModel: ObservableObject {
             
         }
     }
+    //fetching current users
     func fetchCurrentUser() {
         let database = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
@@ -97,7 +98,7 @@ class UserViewModel: ObservableObject {
         self.fetchUsers()
         
     }
-    
+    // function to update friends on cloud firestore
     func updateFriends(friendId: String) {
         let db = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {
@@ -111,7 +112,7 @@ class UserViewModel: ObservableObject {
         self.fetchUsers()
        
     }
-    
+    // function to remove friends from friends list
     func removeFriends(friendId: String) {
         let db = Firestore.firestore()
         guard let uid =  Auth.auth().currentUser?.uid else {

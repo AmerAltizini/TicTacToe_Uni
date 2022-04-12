@@ -1,6 +1,6 @@
+
 import SwiftUI
-
-
+// friend list UI
 struct FriendsList: View {
     @ObservedObject var viewModel = UserViewModel()
     @State var list = [String]()
@@ -45,4 +45,3 @@ struct FriendsList: View {
         
     }
 }
-

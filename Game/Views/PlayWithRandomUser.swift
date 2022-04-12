@@ -1,5 +1,5 @@
 import SwiftUI
-
+// play with random user tictactoe UI
 struct PlayWithRandomUser: View {
     @ObservedObject var viewModel:  MultiPlayerViewModel
     @Binding var showModalWithRandomUser: Bool

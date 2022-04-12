@@ -1,5 +1,5 @@
+//SignUp page User Interface
 import SwiftUI
-
 struct SignUpView : View {
     @State var email = ""
     @State var password = ""

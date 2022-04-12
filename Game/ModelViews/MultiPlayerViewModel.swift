@@ -1,6 +1,6 @@
 import SwiftUI
 import Combine
-
+// class for tictactoe play with a random user
 final class MultiPlayerViewModel: ObservableObject {
     
     @AppStorage("user") private var userData: Data?

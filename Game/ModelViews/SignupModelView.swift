@@ -1,3 +1,5 @@
+//
+//Libraries
 import Foundation
 import FirebaseAuth
 import Firebase
@@ -15,7 +17,7 @@ class AppViewModel: ObservableObject {
         return auth.currentUser != nil
     }
     
-    
+  // a function for signing in
     func signIn(email: String, password: String){
         self.signInLoading = true
         auth.signIn(withEmail: email, password:password){[weak self] result, error in
@@ -53,11 +55,13 @@ class AppViewModel: ObservableObject {
             }
         }
     }
+// a function for signing out
     func signOut(){
         try? auth.signOut()
         
         self.signedIn = false
     }
+    // a function for registering
     func signUp(email: String, password: String, firstName: String, lastName: String){
         self.signInLoading = true
         auth.createUser(withEmail: email, password: password) {[weak self] result, error in
@@ -88,7 +92,7 @@ class AppViewModel: ObservableObject {
                 self?.showAlert = true
                 return
             }
-            
+            //save the collected data on cloud firestore
             let db = Firestore.firestore()
             
             db.collection("users").document(result!.user.uid).setData([

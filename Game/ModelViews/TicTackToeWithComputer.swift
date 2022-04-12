@@ -1,21 +1,21 @@
 import Foundation
 import SwiftUI
-
+// class for tictactoe play with a computer
 class TicTacToeModel : ObservableObject {
     @Published var squares = [Square]()
-    
+    // Initializing tictactoe game
     init() {
         for _ in 0...8 {
             squares.append(Square(status: .empty))
         }
     }
-    
+    //reset the game
     func resetGame() {
         for i in 0...8 {
             squares[i].squareStatus = .empty
         }
     }
-    
+    //gameover
     var gameOver : (SquareStatus, Bool) {
         get {
             if thereIsAWinner != .empty {
@@ -30,7 +30,7 @@ class TicTacToeModel : ObservableObject {
             }
         }
     }
-    
+    //checking the winner algorithm
     private var thereIsAWinner: SquareStatus {
         get {
             if let check = self.checkIndexes([0, 1, 2]) {
@@ -72,14 +72,14 @@ class TicTacToeModel : ObservableObject {
         }
         return nil
     }
-    
+    //making a move for computer
     private func moveAI() {
         var index = Int.random(in: 0...8)
         while makeMove(index: index, player: .visitor) == false && gameOver.1 == false {
             index = Int.random(in: 0...8)
         }
     }
-    
+    //making a move for player
     func makeMove(index: Int, player: SquareStatus) -> Bool {
         if squares[index].squareStatus == .empty {
             squares[index].squareStatus = player

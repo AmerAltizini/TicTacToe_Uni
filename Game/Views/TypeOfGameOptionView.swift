@@ -1,3 +1,4 @@
+//type of tictactoe game option (playerVsComputer, playerVsPlayer(
 import SwiftUI
 
 struct TypeOfGameOptionView: View {
@@ -36,18 +37,6 @@ struct TypeOfGameOptionView: View {
             .fullScreenCover(isPresented: $showModalWithRandomUser) {
                 PlayWithRandomUser(viewModel: MultiPlayerViewModel(),  showModalWithRandomUser: self.$showModalWithRandomUser)
             }
-//            Button(action: {
-//                self.showModalWithComputer.toggle()
-//            }) {
-//                Text("Play with Friend").font(.system(size: 15, weight: .medium, design: .default)).padding() .frame(minWidth: 200, maxWidth: .infinity,alignment: .center)
-//            }
-//            .shadow(radius: 5)
-//            .frame(maxWidth: .infinity, minHeight: 50,alignment: .leading)
-//            .foregroundColor(Color.white).background(Color.black)
-//            .cornerRadius(8)
-//            .fullScreenCover(isPresented: $showModalWithComputer) {
-//                PlayWithComputer(showModalWithComputer: self.$showModalWithComputer)
-//            }
 
         }.navigationTitle("Choose game type")
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)

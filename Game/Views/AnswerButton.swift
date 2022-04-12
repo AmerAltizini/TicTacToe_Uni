@@ -1,9 +1,9 @@
 
 //  AnswerButton.swift
-//  MathGame
+//  MentalCalculation
 //
-//  Created by Federico on 04/11/2021.
-//
+//  Created by Feven on 07/03/2022.
+//UI for answerButton options in the MentalCalculation
 
 import SwiftUI
 
